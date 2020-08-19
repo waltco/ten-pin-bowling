@@ -5,13 +5,20 @@ import com.jobsity.tenpinbowling.model.Player;
 import com.jobsity.tenpinbowling.model.Result;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
+
 import static com.jobsity.tenpinbowling.util.Constants.*;
+import static java.util.Comparator.comparing;
 
 @Service
 public class FormatServiceImpl implements FormatService {
 
     /**
      * Format to StringBuilder with the given format
+     *
      * @param result
      * @return
      */
@@ -19,24 +26,22 @@ public class FormatServiceImpl implements FormatService {
     public StringBuilder format(Result result) {
         StringBuilder text = new StringBuilder();
         printHeader(text);
-        result.getResult().forEach((player, frames) -> {
-            printName(text, player);
-            printPinFalls(text, frames);
-            printScores(text, frames);
-        });
+        result.getResult().entrySet().stream().sorted(comparing(playerListEntry -> playerListEntry.getKey().getName()))
+                .forEach((entry) -> {
+                    printName(text, entry.getKey());
+                    printPinFalls(text, entry.getValue());
+                    printScores(text, entry.getValue());
+                });
         return text;
     }
 
-    /**
-     * Print Header
-     * @param text
-     */
     private void printHeader(StringBuilder text) {
         text.append(HEADER);
     }
 
     /**
      * Print Name
+     *
      * @param text
      * @param player
      */
@@ -48,6 +53,7 @@ public class FormatServiceImpl implements FormatService {
 
     /**
      * Print Pinfalls
+     *
      * @param text
      * @param frames
      */
@@ -55,7 +61,7 @@ public class FormatServiceImpl implements FormatService {
         text.append(PINFALLS);
         text.append(TAB);
         frames.forEach(frame -> {
-            frame.getPinFalls().forEach(pinfall->{
+            frame.getPinFalls().forEach(pinfall -> {
                 text.append(pinfall);
                 text.append(TAB);
             });
@@ -65,6 +71,7 @@ public class FormatServiceImpl implements FormatService {
 
     /**
      * Print Scores
+     *
      * @param text
      */
     private void printScores(StringBuilder text, java.util.List<Frame> frames) {

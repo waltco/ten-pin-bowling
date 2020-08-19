@@ -1,5 +1,5 @@
 package com.jobsity.tenpinbowling.service;
 
 public interface PrintService {
-    void print(StringBuilder content, String outputFilePath);
+    void print(StringBuilder content);
 }

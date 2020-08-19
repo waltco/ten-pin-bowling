@@ -32,7 +32,7 @@ public class LastFrame extends Frame {
         if(isSpare()){
             return Arrays.asList(getPinFallCode(getChances().get(0)), SPARE_CHARACTER,getPinFallCode(getChances().get(2)));
         }
-        return Arrays.asList(getChances().get(0).toString(), getChances().get(1).toString(), getChances().get(2).toString());
+        return Arrays.asList(getChances().get(0).toString(), getChances().get(1).toString());
     }
 
     @Override

@@ -51,7 +51,7 @@ public class TenPinBowlingServiceImpl implements TenPinBowlingService {
         scoreService.calculateScore(result);
 
         StringBuilder output = formatService.format(result);
-        printService.print(output, properties.getOutputFile());
+        printService.print(output);
 
     }
 

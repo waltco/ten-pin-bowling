@@ -1,28 +1,16 @@
-package com.jobsity.tenpinbowling;
+package com.jobsity.tenpinbowling.unittest;
 
-import com.jobsity.tenpinbowling.model.Frame;
 import com.jobsity.tenpinbowling.model.Line;
-import com.jobsity.tenpinbowling.model.Player;
-import com.jobsity.tenpinbowling.model.Result;
 import com.jobsity.tenpinbowling.service.ValidationService;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.argThat;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.internal.matchers.Any;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 class ValidationServiceTests {
@@ -30,9 +18,6 @@ class ValidationServiceTests {
 	@Autowired
 	ValidationService validationService;
 
-
-
- 
 
 	@Test
 	void Is_Lines_Invalid_Should_Return_False_When_Valid_Values() {
