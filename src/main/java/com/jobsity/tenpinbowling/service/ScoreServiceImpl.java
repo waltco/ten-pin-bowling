@@ -19,6 +19,7 @@ public class ScoreServiceImpl implements ScoreService {
      */
     @Override
     public int getScore(String value) {
+        System.out.println("hola = " + value);
         int knockedPins;
         if (FOUL.equals(value)) {
             knockedPins = 0;

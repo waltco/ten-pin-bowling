@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @SpringBootTest
-@TestPropertySource(properties = "tenpinbowling.input.filename=src/test/resources/input-files/two-players-score.txt")
+@TestPropertySource(properties = "tenpinbowling.input.filename=src/test/resources/integrationtest/two-players-score.txt")
 public class TwoPlayersScoreTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();

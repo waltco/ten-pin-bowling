@@ -24,7 +24,7 @@ public class ReadFileServiceImpl implements ReadFileService {
         try (Stream<String> stream = Files.lines(Paths.get(inputFilePath))){
             return stream.collect(Collectors.toList());
         } catch (IOException e) {
-            return Collections.emptyList();
+            throw new IllegalArgumentException("File not found");
         }
     }
 }
