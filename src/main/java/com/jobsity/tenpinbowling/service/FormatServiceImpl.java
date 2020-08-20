@@ -5,11 +5,6 @@ import com.jobsity.tenpinbowling.model.Player;
 import com.jobsity.tenpinbowling.model.Result;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.stream.Collectors;
-
 import static com.jobsity.tenpinbowling.util.Constants.*;
 import static java.util.Comparator.comparing;
 

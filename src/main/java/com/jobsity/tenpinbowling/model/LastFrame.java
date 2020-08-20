@@ -1,8 +1,5 @@
 package com.jobsity.tenpinbowling.model;
 
-import com.jobsity.tenpinbowling.util.Constants;
-import lombok.Data;
-
 import java.util.Arrays;
 import java.util.List;
 
